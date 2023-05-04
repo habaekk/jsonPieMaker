@@ -11,6 +11,8 @@ class LunDayQuery():
     def fetchLunDay(self, month, day, year):
         url = self.getUrl(month, day, year)
         xml = self.getXML(url)
+        if xml == -1:
+            return -1
         lunDay = self.parse(xml)
         
         return lunDay
@@ -21,6 +23,8 @@ class LunDayQuery():
     
     def getXML(self, url):
         xml = request(url)
+        if xml == -1:
+            return -1
         return xml
     
     def getUrl(self, month, day, year): # fetch 랑 get 이랑 차이가 뭐냐?
