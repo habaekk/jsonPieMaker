@@ -1,7 +1,12 @@
 import xml.etree.ElementTree as ET
 
+def XMLParser(root):
 
-def XMLParser():
+    body = root.find(".//body")
+    items = body.find(".//items")
+    item = body.find(".//item")
+    lunDayTag = item.find('.//lunDay')
 
+    lunDay = lunDayTag.text
 
-    return 
+    return lunDay
