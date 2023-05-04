@@ -1,13 +1,46 @@
-from tqdm import tqdm
-import time
+# iter = range(365)
 
-iter = range(365)
 
-for i in tqdm(iter, 
-              total = len(iter), ## 전체 진행수
-              desc = 'Description', ## 진행률 앞쪽 출력 문장
-              ncols = 120, ## 진행률 출력 폭 조절
-              ascii = ' =', ## 바 모양, 첫 번째 문자는 공백이어야 작동
-              leave = True, ## True 반복문 완료시 진행률 출력 남김. False 남기지 않음.
-             ):
-    time.sleep(0.01)
+# data = {
+#     "2020": {
+#         "12": {
+#             "1": {"lunDay": "00", "moonPhase": None},
+#             "2": {"lunDay": "00", "moonPhase": None}
+#         },
+#         "11": {
+
+#         }
+#     },
+#     "2021": {}
+# }
+
+# dic = {}
+# dic1 = {}
+# dic2 = {"12": {1, 2, 3}, "11": {1, 2, 3}}
+# dic3 = {"1": {"lunDay": "00", "moonPhase": None}, "1": {"lunDay": "00", "moonPhase": None}, "1": {"lunDay": "00", "moonPhase": None}}
+
+
+dic = {}
+for y in range(2020, 2024):
+    dic1 = {}
+    for m in range(1, 3):
+        dic2 = {}
+        for d in range(5):
+            lunDay = 0
+            moonPhase = 1
+            dic2[str(d)] = {"lunDay": str(lunDay), "moonPhase": str(moonPhase)}
+        dic1[str(m)] = dic2
+    dic[str(y)] = dic1
+
+
+{'2020': 
+ {'1': 
+  {'1': {'lunDay': '7', 'moonPhase': '2'}, 
+   '2': {'lunDay': '8', 'moonPhase': '0'}, 
+   '3': {'lunDay': '9', 'moonPhase': '0'}, 
+   '4': {'lunDay': '10', 'moonPhase': '0'}, 
+   '5': {'lunDay': '11', 'moonPhase': '0'}, 
+   '6': {'lunDay': '12', 'moonPhase': '0'}, 
+   '7': {'lunDay': '13', 'moonPhase': '0'}, 
+   '8': {'lunDay': '14', 'moonPhase': '0'}, 
+   '9': {'lunDay': '15', 'moonPhase': '3'}}}}
